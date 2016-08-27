@@ -1,5 +1,2 @@
-# elastic-search-infrastructure
-
-Infrastructure build out for Elastic Search using Terraform, Packer, and related tooling.
-
-[Notes](packer/notes.md)
+# elasticsearch-terraform-packer
+A setup with Terraform, Packer, and respective tooling to spin up a complete 4-node cluster of Elasticsearch in Google Compute Engine.
