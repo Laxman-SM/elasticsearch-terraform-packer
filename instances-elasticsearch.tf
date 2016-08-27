@@ -12,7 +12,7 @@ resource "google_compute_instance" "elastic-node-1" {
 
   disk {
     image = "${var.image_elastic}"
-    size = 512
+    size = 255
   }
 
   network_interface {
@@ -27,7 +27,7 @@ resource "google_compute_instance" "elastic-node-1" {
     connection {
       type = "ssh"
       private_key = "${var.private_ssh_key}"
-      timeout = "45s"
+      timeout = "30"
     }
   }
 
@@ -61,32 +61,3 @@ resource "google_compute_instance" "elastic-node-1" {
       "storage-ro"]
   }
 }
-
- # Elasticsearch One
- resource "google_compute_instance" "reports" {
-   name = "reports"
-   machine_type = "${var.machine_type}"
-   tags = [
-     "http-server",
-     "https-server",
-     "default-allow-ssh"]
-
-   zone = "us-west1-a"
-
-   disk {
-     image = "${var.image_kibana}"
-     size = 255
-   }
-
-   network_interface {
-     subnetwork = "default"
-     access_config {     }
-   }
-
-   service_account {
-     scopes = [
-       "userinfo-email",
-       "compute-ro",
-       "storage-ro"]
-   }
- }
