@@ -1,0 +1,60 @@
+{
+  "variables": {
+    "account_json": "{{env `packer_account_json`}}",
+    "instance_name": "testing-hdqc-elastic-{{timestamp}}",
+    "image_name": "testing-hdqc-elastic-{{timestamp}}"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "{{user `account_json`}}",
+      "project_id": "united-course-124523",
+      "source_image": "debian-8-jessie-v20160718",
+      "zone": "us-central1-a",
+      "instance_name": "{{user `instance_name`}}",
+      "image_name": "{{user `image_name`}}",
+      "image_description": "Elasticsearch 2.3.4.",
+      "communicator": "ssh",
+      "ssh_username": "elasticadmin"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 3",
+        "echo \"slept for 3 seconds.\""
+      ]
+    },
+    {
+      "type": "file",
+      "source": "create-elastic-yaml.sh",
+      "destination": "create-elastic-yaml.sh"
+    },
+    {
+      "type": "file",
+      "source": "setup-elastic.sh",
+      "destination": "setup-elastic.sh"
+    },
+    {
+      "type": "file",
+      "source": "install-java-8.sh",
+      "destination": "install-java-8.sh"
+    },
+    {
+      "type": "shell",
+      "script": "install-java-8.sh",
+      "pause_before": "10s"
+    },
+    {
+      "type": "file",
+      "source": "install-elastic.sh",
+      "destination": "install-elastic.sh"
+    },
+    {
+      "type": "shell",
+      "script": "install-elastic.sh",
+      "pause_before": "10s"
+    }
+  ]
+}
