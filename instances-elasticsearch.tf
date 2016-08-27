@@ -34,7 +34,7 @@ resource "google_compute_instance" "elastic-node-1" {
     connection {
       type = "ssh"
       private_key = "${var.private_ssh_key}"
-      timeout = "30"
+      timeout = "${var.timeout}"
     }
   }
 
@@ -99,7 +99,7 @@ resource "google_compute_instance" "elastic-node-2" {
     connection {
       type = "ssh"
       private_key = "${var.private_ssh_key}"
-      timeout = "30"
+      timeout = "${var.timeout}"
     }
   }
 }
@@ -140,7 +140,7 @@ resource "google_compute_instance" "elastic-node-3" {
     connection {
       type = "ssh"
       private_key = "${var.private_ssh_key}"
-      timeout = "30"
+      timeout = "${var.timeout}"
     }
   }
 }
