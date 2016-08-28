@@ -1,15 +1,15 @@
-// resource "google_compute_firewall" "elasticsearch" {
-//   name    = "elasticsearch"
-//   network = "${google_compute_network.other.name}"
-//
-//   allow {
-//     protocol = "icmp"
-//   }
-//
-//   allow {
-//     protocol = "tcp"
-//     ports    = ["80", "8080", "1000-2000"]
-//   }
-//
-//   source_tags = ["web"]
-// }
+resource "google_compute_firewall" "elasticsearch" {
+  name    = "elasticsearch"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["9200"]
+  }
+
+  target_tags = ["elasticsearch"]
+}
