@@ -18,5 +18,5 @@ resource "google_compute_instance_group" "monitoring-testing" {
     port = "9200"
   }
 
-  zone = "us-central1-a"
+  zone = "us-west1-a"
 }

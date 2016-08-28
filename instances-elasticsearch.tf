@@ -27,16 +27,16 @@ resource "google_compute_instance" "elastic-node-1" {
       "storage-ro"]
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "echo ${google_compute_instance.elastic-node-1.network_interface.0.access_config.0.assigned_nat_ip}"]
-
-    connection {
-      type = "ssh"
-      private_key = "${var.private_ssh_key}"
-      timeout = "${var.timeout}"
-    }
-  }
+  // provisioner "remote-exec" {
+  //   inline = [
+  //     "echo ${google_compute_instance.elastic-node-1.network_interface.0.access_config.0.assigned_nat_ip}"]
+  //
+  //   connection {
+  //     type = "ssh"
+  //     private_key = "${var.private_ssh_key}"
+  //     timeout = "${var.timeout}"
+  //   }
+  // }
 
   // provisioner "file" {
   //   source = "tf-scripts/create-elastic-yaml.sh"
@@ -91,17 +91,6 @@ resource "google_compute_instance" "elastic-node-2" {
       "compute-ro",
       "storage-ro"]
   }
-
-  provisioner "remote-exec" {
-    inline = [
-      "echo ${google_compute_instance.elastic-node-2.network_interface.0.access_config.0.assigned_nat_ip}"]
-
-    connection {
-      type = "ssh"
-      private_key = "${var.private_ssh_key}"
-      timeout = "${var.timeout}"
-    }
-  }
 }
 
 # Elasticsearch One
@@ -131,16 +120,5 @@ resource "google_compute_instance" "elastic-node-3" {
       "userinfo-email",
       "compute-ro",
       "storage-ro"]
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "echo ${google_compute_instance.elastic-node-3.network_interface.0.access_config.0.assigned_nat_ip}"]
-
-    connection {
-      type = "ssh"
-      private_key = "${var.private_ssh_key}"
-      timeout = "${var.timeout}"
-    }
   }
 }
