@@ -5,7 +5,7 @@ resource "google_compute_instance" "elastic-node-1" {
   tags = [
     "http-server",
     "https-server",
-    "dev-elastic",
+    "elasticsearch",
     "default-allow-ssh"]
 
   zone = "us-west1-a"
@@ -70,7 +70,7 @@ resource "google_compute_instance" "elastic-node-2" {
   tags = [
     "http-server",
     "https-server",
-    "dev-elastic",
+    "elasticsearch",
     "default-allow-ssh"]
 
   zone = "us-west1-a"
@@ -100,7 +100,7 @@ resource "google_compute_instance" "elastic-node-3" {
   tags = [
     "http-server",
     "https-server",
-    "dev-elastic",
+    "elasticsearch",
     "default-allow-ssh"]
 
   zone = "us-west1-a"
