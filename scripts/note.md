@@ -18,3 +18,7 @@ cluster.name: hub-mud-cluster
 bootstrap.mlockall: true
 
 " >> /etc/elasticsearch/elasticsearch.yml'
+
+
+
+http://devopscube.com/how-to-setup-an-elasticsearch-cluster/
