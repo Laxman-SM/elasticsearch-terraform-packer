@@ -1,0 +1,10 @@
+# Configured for Node 1 & 10.11.11.6
+192.168.99.1.
+
+node.name: elastic-node-1
+cluster.name: hub-mud-cluster
+bootstrap.mlockall: true
+network.host: 10.11.11.6
+192.168.99.1
+
+
