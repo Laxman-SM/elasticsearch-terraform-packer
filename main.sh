@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ../
+
 terraform apply
 cd scripts
 
