@@ -28,4 +28,4 @@ sudo chmod 700 ./node$node.sh && \
 sudo ./node$node.sh && \
 sudo service elasticsearch start"
 
-./readstatus.sh
+# ./readstatus.sh
